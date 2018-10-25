@@ -13,7 +13,7 @@ namespace BestForYourOrganics.API
     {
         [FunctionName("GetRating")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "GetRating/{id}")]HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetRating/{id}")]HttpRequest req, 
             string id,
              [CosmosDB( "ratings", "ratings", ConnectionStringSetting = "cosmosDBConnectionString", 
                 Id = "{id}")] RatingDocument ratingDoc,

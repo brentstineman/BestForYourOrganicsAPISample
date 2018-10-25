@@ -14,7 +14,7 @@ namespace BestForYourOrganics.API
     {
         [FunctionName("GetRatings")]
         public static IActionResult Run(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "GetRatings/{userid}")]HttpRequest req, 
+            [HttpTrigger(AuthorizationLevel.Function, "get", Route = "GetRatings/{userid}")]HttpRequest req, 
             string userid,
             [CosmosDB("ratings", "ratings", ConnectionStringSetting = "cosmosDBConnectionString", SqlQuery = "SELECT * FROM c WHERE c.userid={userid}")] IEnumerable<object> documents,
             ILogger log)
